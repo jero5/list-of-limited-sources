@@ -1,0 +1,31 @@
+
+(class TestFib
+
+  (def self.fib (n (= a 0) (= b 1))
+    (if (<= n 0)
+      a
+    (else
+      (fib (- n 1) b (+ a b))))))
+
+(class TestBounce
+
+  (def self.bounce0 (n)
+    (bounce1 (- n 1)))
+
+  (def self.bounce1 (n)
+    (bounce2 (- n 1)))
+
+  (def self.bounce2 (n)
+    (if (<= n 0)
+      -999
+    (else
+      (bounce0 (- n 1))))))
+
+(= rgx /\\ \ \//x)
+(= str "\\ \ \"")
+(= flt 10.8)
+
+(= num 200_000)
+
+(puts (TestBounce.bounce0 num))
+
