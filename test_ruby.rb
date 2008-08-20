@@ -101,6 +101,8 @@ class TestBounce
   end
 end
 
+quo = (6 / 2)
+
 rgx = /\\ \ \//x
 str = "\\ \ \""
 flt = 10.8
