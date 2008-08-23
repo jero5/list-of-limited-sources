@@ -21,6 +21,9 @@
     (else
       (bounce0 (- n 1))))))
 
+(= ary ([] (+ 6 7) 10 "hello"))
+(= hsh ({} (:where "there") (:when (+ 3 2))))
+
 (= quo (/ 6 2))
 
 (= rgx /\\ \ \//x)
@@ -30,4 +33,5 @@
 (= num 200_000)
 
 (puts (TestBounce.bounce0 num))
+(puts (TestFib.fib 10))
 

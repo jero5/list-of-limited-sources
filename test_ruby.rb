@@ -3,13 +3,13 @@ class TestFib
 
   def self.fib(n, a = 0, b = 1)
     __args__ = [b, a, n]
-    __ret__ = nil
     __meth__ = :fib
 
-    __shared__(__args__, __ret__, __meth__)
+    __shared__(__args__, __meth__)
   end
 
-  def self.__shared__(__args__, __ret__, __meth__)
+  def self.__shared__(__args__, __meth__)
+    __ret__ = nil
 
     loop do
 
@@ -47,29 +47,27 @@ class TestBounce
 
   def self.bounce0(n)
     __args__ = [n]
-    __ret__ = nil
     __meth__ = :bounce0
 
-    __shared__(__args__, __ret__, __meth__)
+    __shared__(__args__, __meth__)
   end
 
   def self.bounce1(n)
     __args__ = [n]
-    __ret__ = nil
     __meth__ = :bounce1
 
-    __shared__(__args__, __ret__, __meth__)
+    __shared__(__args__, __meth__)
   end
 
   def self.bounce2(n)
     __args__ = [n]
-    __ret__ = nil
     __meth__ = :bounce2
 
-    __shared__(__args__, __ret__, __meth__)
+    __shared__(__args__, __meth__)
   end
 
-  def self.__shared__(__args__, __ret__, __meth__)
+  def self.__shared__(__args__, __meth__)
+    __ret__ = nil
 
     loop do
 
@@ -101,6 +99,9 @@ class TestBounce
   end
 end
 
+ary = [6 + 7, 10, "hello"]
+hsh = {:where => "there", :when => 3 + 2}
+
 quo = (6 / 2)
 
 rgx = /\\ \ \//x
@@ -110,4 +111,5 @@ flt = 10.8
 num = 200_000
 
 puts TestBounce.bounce0(num)
+puts TestFib.fib(10)
 

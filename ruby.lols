@@ -1,0 +1,34 @@
+# list of limited sources
+# Copyright (c) 2008 Jeremy Roach
+# Licensed under The MIT License
+
+(class LOLsRuby
+
+  (= REGEX_TOKENS / \\ ['\\"\/] | [#\\'()"\/] | [^\s#\\'()"\/]+ | \s+ /x)
+
+  (def transform (str)
+    (= tokens (str.scan REGEX_TOKENS))
+    (= parser Parser.new)
+    (= serializer Serializer.new)
+    (= ary (parser.run tokens))
+    (serializer.run ary)))
+
+(class (< Parser LOLsRuby)
+
+  (def run (tokens (= token tokens.shift))
+    (case token
+    (when '('
+      ))))
+
+(class (< Serializer LOLsRuby)
+
+  (def run (ary)
+    ))
+
+(class (< Optimizer LOLsRuby)
+
+  (def run (ary)
+    ))
+
+(LOLsRuby.new.transform STDIN.read)
+
