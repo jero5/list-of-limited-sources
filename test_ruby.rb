@@ -99,12 +99,18 @@ class TestBounce
   end
 end
 
+Array.new(25).clear
+
 ary = [6 + 7, 10, "hello"]
+elems = ary[0..2]
 hsh = {:where => "there", :when => 3 + 2}
+val = hsh[:where]
 
 quo = (6 / 2)
 
-rgx = /\\ \ \//x
+sneak_native_past_parser = '\\'
+rgx = /\\ #{sneak_native_past_parser + ''} \//x
+
 str = "\\ \ \""
 flt = 10.8
 
