@@ -21,7 +21,10 @@
     (else
       (bounce0 (- n 1))))))
 
-(. (Array.new 25) clear)
+(= ary ([] ([] :foo)))
+(= elem (ary[][] 0 -1))
+
+(. Array (new 25) clear)
 
 (= ary ([] (+ 6 7) 10 "hello"))
 (= elems (ary[] (.. 0 2)))

@@ -99,6 +99,9 @@ class TestBounce
   end
 end
 
+ary = [[:foo]]
+elem = ary[0][-1]
+
 Array.new(25).clear
 
 ary = [6 + 7, 10, "hello"]

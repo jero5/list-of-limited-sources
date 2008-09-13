@@ -8,17 +8,90 @@
 
   (def transform (str)
     (= tokens (str.scan REGEX_TOKENS))
-    (= parser Parser.new)
+    (= parser (Parser.new tokens))
+    (= dumper Dumper.new)
     (= serializer Serializer.new)
-    (= ary (parser.run tokens))
-    (serializer.run ary)))
+    (= ary parser.run)
+    (dumper.run ary)))
 
 (class (< Parser LOLsRuby)
 
-  (def run (tokens (= token tokens.shift))
-    (case token
-    (when '('
-      ))))
+  (attr_accessor (, :tokens :stack :status))
+
+  (def initialize (tokens)
+    (= @tokens tokens)
+    (= @stack []))
+
+  (def finalize ()
+    )
+
+  (def left_parenthesis ()
+    (case @status
+    (when (, :within_string_sq :within_string_dq :within_regex)
+      (<< (@stack[][] -1 -1) '('))
+    (else
+      (= ary [])
+      (<< (@stack[] -1) ary)
+      (<< @stack ary)))
+    run)
+
+  (def right_parenthesis ()
+    )
+
+  (def hash ()
+    )
+
+  (def double_quote ()
+    )
+
+  (def single_quote ()
+    )
+
+  (def forward_slash ()
+    )
+
+  (def backslash ()
+    )
+
+  (def whitespace ()
+    )
+
+  (def escaped_character (token)
+    )
+
+  (def word (token)
+    )
+
+  (def run ((= token @tokens.shift))
+    (if token.nil?
+      finalize
+    (else
+      (case token
+      (when '('
+        left_parenthesis)
+      (when ')'
+        right_parenthesis)
+      (when '#'
+        hash)
+      (when '"'
+        double_quote)
+      (when '\''
+        single_quote)
+      (when '/'
+        forward_slash)
+      (when '\\'
+        backslash)
+      (when /\A\s+\Z/
+        whitespace)
+      (when (, '\\\\' '\\\'' '\\"' '\\/')
+        (escaped_character token))
+      (else
+        (word token)))))))
+
+(class (< Dumper LOLsRuby)
+
+  (def run (ary)
+    ))
 
 (class (< Serializer LOLsRuby)
 
